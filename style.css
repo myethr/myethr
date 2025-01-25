@@ -107,6 +107,18 @@ footer p {
     margin: 4px 0;
 }
 
+/* Add below existing footer styles */
+.credit a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.credit a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 /* Mobile-friendly styles */
 @media (max-width: 600px) {
     body {
