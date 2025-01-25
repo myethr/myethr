@@ -21,7 +21,7 @@ function calculate() {
 
     // Validate inputs
     if (isNaN(expense) || isNaN(hourlyWage) || hourlyWage <= 0 || !state) {
-        document.getElementById('result').textContent = "Please enter valid numbers and select your state.";
+        document.getElementById('result').textContent = "Enter valid numbers and select your state!";
         return;
     }
 
