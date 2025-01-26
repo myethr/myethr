@@ -1,5 +1,27 @@
-body {
-    font-family: Arial, sans-serif;
+:root {
+    /* Light Mode Colors */
+    --background-light: #f0f8ff;
+    --text-light: #15233a;
+    --accent-light: #007BFF;
+    --container-bg-light: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    --placeholder-light: rgba(0, 0, 0, 0.5); /* Light mode placeholder color */
+  
+    /* Dark Mode Colors */
+    --background-dark: #0b121f;
+    --text-dark: #ffffff;
+    --accent-dark: #1E90FF;
+    --placeholder-dark: rgba(255, 255, 255, 0.7); /* Dark mode placeholder color */
+  
+    /* Default Theme (Light Mode) */
+    --background: var(--background-light);
+    --text: var(--text-light);
+    --accent: var(--accent-light);
+    --placeholder: var(--placeholder-light);
+  }
+  
+  body {
+    transition: background 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     padding-bottom: 100px;
@@ -7,89 +29,100 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0b121f, #15233a);
-    color: white;
+    background: var(--background);
+    color: var(--text);
     padding: 20px;
     box-sizing: border-box;
-}
-
-.header-container {
+  }
+  
+  .header-container {
     text-align: center;
     margin: 40px 0 20px;
     max-width: 600px;
     width: 100%;
     animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-}
-
-.header-container h1 {
-    color: #fff;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .header-container h1 {
+    color: var(--text);
     font-size: 2.2rem;
     margin: 0 0 15px 0;
     line-height: 1.2;
-}
-
-.header-container p {
-    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .header-container p {
+    color: var(--text);
     font-size: 1rem;
     margin: 0 0 30px 0;
     line-height: 1.5;
-}
-
-.container {
-    background: rgba(255, 255, 255, 0.1);
+    opacity: 0.9;
+  }
+  
+  .container {
+    background: var(--container-bg-light); /* Light mode background */
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Light mode border */
     text-align: center;
     max-width: 400px;
     width: 100%;
     margin: 20px 0;
-}
-
-label {
+  }
+  
+  label {
     display: block;
     margin: 10px 0 5px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text);
     font-size: 0.9rem;
-}
-
-input, select {
+  }
+  
+  input,
+  select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
+    background: rgba(0, 0, 0, 0.1); /* Light mode background */
+    color: var(--text);
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Light mode border */
     font-size: 1rem;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2315233a'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Light mode icon */
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 12px;
-    box-sizing: border-box; /* Ensure consistent sizing */
-}
-
-input::placeholder, select::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-input:focus, select:focus, button:focus {
-    outline: 2px solid #a9b4c0;
+    box-sizing: border-box;
+  }
+  
+  input::placeholder,
+  select::placeholder {
+    color: var(--placeholder); /* Theme-based placeholder color */
+  }
+  
+  input:focus,
+  select:focus,
+  button:focus {
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
-}
-
-button {
-    background: #007BFF;
+  }
+  
+  button {
+    background: var(--accent);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -97,82 +130,162 @@ button {
     cursor: pointer;
     font-size: 1rem;
     transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-#result {
+  }
+  
+  button:hover {
+    background: var(--accent-dark);
+  }
+  
+  #result {
     margin-top: 20px;
-    color: white;
+    color: var(--text);
     font-size: 1.2rem;
-}
+  }
+  
+  .dark-mode {
+    --background: var(--background-dark);
+    --text: var(--text-dark);
+    --accent: var(--accent-dark);
+  }
+  
+  .dark-mode .container {
+    background: rgba(255, 255, 255, 0.05); /* Dark mode background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Dark mode border */
+  }
+  
+  .dark-mode input,
+  .dark-mode select {
+    background: rgba(255, 255, 255, 0.1); /* Dark mode background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Dark mode border */
+    color: var(--text); /* Ensure text is readable */
+  }
+  
+  .dark-mode select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* White arrow for dark mode */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+  }
+  
+  .dark-mode select option {
+    background: var(--background-dark); /* Dark mode background */
+    color: var(--text-dark); /* Dark mode text color */
+  }
+  
+  .dark-mode input {
+    background-image: none; /* Remove arrow from input fields */
+  }
 
-/* Footer Styles */
-footer {
+  .dark-mode input::placeholder,
+  .dark-mode select::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* White placeholder for dark mode */
+}
+  
+  #theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s ease;
+  }
+  
+  #theme-toggle:hover {
+    background: var(--accent-dark);
+  }
+  
+  #theme-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* Footer Styles */
+  footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     text-align: center;
     padding: 8px 0;
-    background: rgba(0, 0, 0, 0.3);
-    color: rgba(255, 255, 255, 0.6);
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    color: var(--text);
     font-size: 0.8rem;
     z-index: 10;
-}
-
-footer p {
+  }
+  
+  footer p {
     margin: 4px 0;
-}
-
-/* Add below existing footer styles */
-.credit a {
-    color: rgba(255, 255, 255, 0.7);
+    opacity: 0.7; /* Slightly transparent for better readability */
+  }
+  
+  .credit a {
+    color: var(--text);
     text-decoration: none;
     transition: opacity 0.3s ease;
-}
-
-.credit a:hover {
+  }
+  
+  .credit a:hover {
     opacity: 0.8;
     text-decoration: underline;
-}
-
-/* Keep all your existing styles for labels, inputs, button, etc. */
-
+  }
+  
 /* Mobile-friendly styles */
 @media (max-width: 600px) {
     .header-container {
-        margin: 35px 0;
+      margin: 20px 0 10px; /* Reduced top margin to prevent overlap */
     }
-    
+  
     .header-container h1 {
-        font-size: 1.55rem;
+      font-size: 1.55rem;
+      padding: 0 10px; /* Added padding to prevent text from touching edges */
     }
-    
+  
     .header-container p {
-        font-size: 0.7rem;
-        padding: 0 10px;
+      font-size: 0.7rem;
+      padding: 0 10px;
     }
-    
+  
     .container {
-        padding: 20px;
-        margin: -10px 0;
-        max-width: 90%;
+      padding: 20px;
+      margin: -10px 0;
+      max-width: 90%;
+      margin-bottom: 60px; /* Added bottom margin to avoid overlapping with the toggle button */
     }
-
+  
     body {
-        padding-bottom: 80px;
+      padding-bottom: 80px;
     }
-    
+  
     footer {
-        padding: 8px 0;
-        font-size: 0.7rem;
+      padding: 8px 0;
+      font-size: 0.7rem;
     }
-
+  
     html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 20px;
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
     }
-}
+  
+    /* Reposition the toggle button for mobile */
+    #theme-toggle {
+      position: fixed;
+      bottom: 20px; /* Place at the bottom */
+      right: 20px;
+      top: auto; /* Remove fixed top position */
+      background: var(--accent);
+      border: none;
+      padding: 8px; /* Smaller padding for mobile */
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+  
+    #theme-icon {
+      font-size: 1rem; /* Smaller icon for mobile */
+    }
+  }
