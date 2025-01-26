@@ -38,3 +38,31 @@ function calculate() {
     const resultText = `You need to work ${hoursNeeded} hours to afford this.`;
     document.getElementById('result').textContent = resultText;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+  
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      body.classList.add(savedTheme);
+      icon.textContent = savedTheme === 'dark-mode' ? '☀️' : '🌙';
+    }
+  
+    // Check for system preference
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDarkMode && !savedTheme) {
+      body.classList.add('dark-mode');
+      icon.textContent = '☀️';
+    }
+  
+    // Toggle theme
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDarkMode = body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDarkMode ? 'dark-mode' : '');
+      icon.textContent = isDarkMode ? '☀️' : '🌙';
+    });
+  });
