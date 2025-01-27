@@ -231,6 +231,50 @@
     opacity: 0.8;
     text-decoration: underline;
   }
+
+  /* About Page Styles */
+.about-content {
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color:rgba(155, 148, 148, 0.055)
+}
+
+.about-content h2 {
+  font-size: 1.5rem;
+  margin: 20px 0 10px;
+  color: var(--text);
+}
+
+.about-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.9;
+  margin: 0 0 20px;
+}
+
+.about-content a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.about-content a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.about-content button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
   
 /* Mobile-friendly styles */
 @media (max-width: 600px) {
@@ -239,7 +283,7 @@
     }
   
     .header-container h1 {
-      font-size: 1.55rem;
+      font-size: 1rem;
       padding: 0 10px; /* Added padding to prevent text from touching edges */
     }
   
@@ -272,12 +316,12 @@
     /* Reposition the toggle button for mobile */
     #theme-toggle {
       position: fixed;
-      bottom: 20px; /* Place at the bottom */
+      bottom: 25px; /* Place at the bottom */
       right: 20px;
       top: auto; /* Remove fixed top position */
       background: var(--accent);
       border: none;
-      padding: 8px; /* Smaller padding for mobile */
+      padding: 5px; /* Smaller padding for mobile */
       border-radius: 50%;
       cursor: pointer;
       z-index: 1000;
@@ -287,5 +331,23 @@
   
     #theme-icon {
       font-size: 1rem; /* Smaller icon for mobile */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .about-content h2 {
+      font-size: 1.2rem;
+    }
+  
+    .about-content p {
+      font-size: 0.9rem;
+    }
+  
+    .header-container h1 {
+      font-size: 1.5rem;
+    }
+  
+    .header-container p {
+      font-size: 0.8rem;
     }
   }
