@@ -336,18 +336,18 @@
 
   @media (max-width: 600px) {
     .about-content h2 {
-      font-size: 1.2rem;
+      font-size: 1.48rem;
     }
   
     .about-content p {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
   
     .header-container h1 {
-      font-size: 1.5rem;
+      font-size: 1.48rem;
     }
   
     .header-container p {
-      font-size: 0.8rem;
+      font-size: 0.71rem;
     }
   }
